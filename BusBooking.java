@@ -1,16 +1,26 @@
 package BusApp;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.List;
+import java.util.Stream;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;;
+
 
 interface  BusI {
     public void showBooking();
     public void showBuses();
     public void getBoardingDestination();
     public void getDate();
+    List<String> busName = new ArrayList<>();
+    List<Integer> busCost = new ArrayList<>();
+    Stream<Integer> S = busCost.stream();
 
-    String[] bus={"A1 travels","Kallada"};
+    // String[] bus={"A1 travels","Kallada"};
     int[] prices = {2354,1547};
-    
+    // Map<String,Integer> buses = new HashMap<>();
+    // static Map <String,Integer> busSelected = new HashMap<>();
 }
 class Bus1 implements BusI{
     Scanner sc = new Scanner(System.in);
@@ -22,7 +32,7 @@ class Bus1 implements BusI{
     String destination;
     public void showBuses(){
         System.out.println("Available buses:");
-        for(int i =0;i<bus.length;i++){
+        for(int i =0;i<bus.Name;i++){
             System.out.println((i+1)+ ")" +bus[i]+ "price:" + prices[i]);
         }
     }
@@ -65,6 +75,11 @@ class Bus1 implements BusI{
             Scanner sc = new Scanner(System.in);
             int ch=2;
             Bus1 b = new Bus1();
+            busNmae.add("A1 Travels");
+            busName.add("Kallada");
+            busCost.add(3427);
+            busCost.add(5432);
+            int avg=(S.reduce(0,(c,e) -> (c+e))/busCost.size());
 
             do{
                 System.out.println("Bus App");
